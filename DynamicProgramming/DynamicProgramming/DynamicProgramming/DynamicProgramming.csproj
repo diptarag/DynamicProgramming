@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{89F8F271-039C-4C5E-A7E8-CA2BF0938921}</ProjectGuid>
+    <ProjectGuid>{3C49B5C3-A9CA-4B7A-A37A-2CDD01EC528C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DynamicProgramming</RootNamespace>
