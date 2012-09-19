@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace DynamicProgramming
 {
@@ -23,6 +20,11 @@ namespace DynamicProgramming
                         break;
                 }
             }
+        }
+
+        static IDynamic GetProblemClass(Global.Problems problem)
+        {
+            return new RodCutting();
         }
     }
 }
