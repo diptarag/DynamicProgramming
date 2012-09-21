@@ -6,6 +6,7 @@ namespace DynamicProgramming
     {
         public enum Problems
         {
+            None,
             RodCutting,
             AssemblyLineScheduling,
             MatrixChainMultiplication,
@@ -16,6 +17,12 @@ namespace DynamicProgramming
             SingleSourceShortestPath,
             Knapsack01,
             TravellingSlesmanProblem
+        }
+
+        public enum IOMode
+        {
+            Input,
+            Output
         }
     }
 }

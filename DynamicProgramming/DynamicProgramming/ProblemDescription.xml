@@ -10,7 +10,7 @@
       <Method Id="1" Name="Simple Recursive" />
       <Method Id="2" Name="Top-down with memoization" />
       <Method Id="3" Name="Bottom-up" />
-      <Method Id="4" Name="Bottom-up - Value & Solution" />
+      <Method Id="4" Name="Bottom-up - Value &amp; Solution" Default="true"/>
     </Implementations>
     <Instruction>
       input.txt should contain 2 lines. First line should contain only one number - number of pieces to cut. And in second line give the length wise price seperated by a blank space

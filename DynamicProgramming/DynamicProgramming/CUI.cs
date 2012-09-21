@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace DynamicProgramming
 {
@@ -47,6 +49,30 @@ namespace DynamicProgramming
         {
             Console.Write("\nOption specified is not recognized. Press any key to try again ... ");
             Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Show custom exception message on the screen
+        /// </summary>
+        /// <param name="errorMessage">Custom exception message</param>
+        public static void ShowException(string errorMessage)
+        {
+            Console.WriteLine(errorMessage);
+            Console.WriteLine("\nPlease try to rectify any problem that may result this error and press any key to try again ..... ");
+            Console.ReadKey();
+        }
+
+        public static string ShowImplementations(string problemName, Dictionary<int, string> methods)
+        {
+            StringBuilder listImplementations = new StringBuilder();
+            Console.Clear();
+            Console.WriteLine(problemName);
+            listImplementations.Append("\nBelow are some implementations for this specific problem : \n");
+            foreach (int key in methods.Keys)            
+                listImplementations.Append("\n").Append(key).Append(". ").Append(methods[key]);
+            listImplementations.Append("\nPlease choose your option and hit enter (Hit enter if you want me to choose the best method for you ... ");
+            Console.WriteLine(listImplementations.ToString());
+            return Console.ReadLine();
         }
     }
 }

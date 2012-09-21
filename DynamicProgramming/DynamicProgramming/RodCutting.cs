@@ -2,28 +2,24 @@
 
 namespace DynamicProgramming
 {
-    public class RodCutting : IDynamic
-    {
-        int methodNumber;
-        int totalMethods;
+    public class RodCutting : Problem
+    {        
+        int methodNumber;        
         int numberOfCuts;
-        int[] cost;
-        public int MethodNumber
+        int[] cost;        
+
+        public RodCutting()
+            : base(Global.Problems.RodCutting)
         {
-            get
-            {
-                return methodNumber;
-            }
-            set
-            {
-                if (value > totalMethods)
-                    methodNumber = 0;
-                else
-                    methodNumber = value;
-            }
+            methodNumber = base.GetImplementationID();
         }
 
-        public void ComputeAndShow()
+        public override void Compute()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void ReadInputFile()
         {
             throw new NotImplementedException();
         }
