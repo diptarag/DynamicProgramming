@@ -58,7 +58,7 @@ namespace DynamicProgramming
         public static void ShowException(string errorMessage)
         {
             Console.WriteLine(errorMessage);
-            Console.WriteLine("\nPlease try to rectify any problem that may result this error and press any key to try again ..... ");
+            Console.WriteLine("\nPlease try to rectify any problem that may result this error. \nIf you are getting this error message repeatedly kindly contact diptarag@gmail.com (maybe you are running this application for fun but I need to know my errors, please mail me, it's my request) \nPress any key to try again ..... ");
             Console.ReadKey();
         }
 

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CUI.cs" />
+    <Compile Include="DynamicProgrammingException.cs" />
     <Compile Include="ExtensionException.cs" />
     <Compile Include="FileHandler.cs" />
     <Compile Include="Global.cs" />

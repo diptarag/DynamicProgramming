@@ -48,9 +48,9 @@ namespace DynamicProgramming
             else if (exception as UnauthorizedAccessException != null || exception as SecurityException != null)
                 errorMessage = "\n\nIt seems you do not have necessary access to perform one or many action(s). Please check your security settings.\n" + exception.Message;
             else if (exception as IOException != null)
-                errorMessage = "\n\nIt seems one IO Exception is occurred while processing your request. Please check your settings.\n" + exception.Message;
-            else if (exception as InvalidOperationException != null || exception as NullReferenceException != null)
-                errorMessage = "\n\nAn exception occurred while processing your request. Please do not change anything in ProblemDescription.xml. Leave it as it is.\n" + exception.Message;
+                errorMessage = "\n\nIt seems one IO Exception is occurred while processing your request. Please check your settings.\n" + exception.Message;            
+            else if (exception as DynamicProgrammingException != null)
+                errorMessage = exception.Message;
             else
                 errorMessage = "\n\nAn exception occured while processing your request, please find below the exception.\n" + exception.Message;
 

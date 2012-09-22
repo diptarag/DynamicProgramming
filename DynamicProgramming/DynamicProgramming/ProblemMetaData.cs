@@ -45,7 +45,14 @@ namespace DynamicProgramming
             * My guess is .First uses simple foreach loop whereas .Where uses many different iterators for different purposes, it may give some edge (by optimizing) to .Where
                 * - Diptarag
             */
-            problemElement = doc.Descendants("Problem").Where(node => Convert.ToInt32(node.Attribute("Id").Value) == (int)ProblemID).First();            
+            try
+            {
+                problemElement = doc.Descendants("Problem").Where(node => Convert.ToInt32(node.Attribute("Id").Value) == (int)ProblemID).First();
+            }
+            catch
+            {
+                throw new DynamicProgrammingException("It seems Id attribute of Problem element has been changed in ProblemDescription.xml or some element is deleted. Please do not change the content of the xml");
+            }
         }
         #endregion
 
@@ -55,8 +62,15 @@ namespace DynamicProgramming
         /// </summary>
         /// <returns>Name of the problem</returns>
         public string GetName()
-        {            
-            return problemElement.Element("Name").Value;
+        {
+            try
+            {
+                return problemElement.Element("Name").Value;
+            }
+            catch
+            {
+                throw new DynamicProgrammingException("It seems Name element of the particular Problem is deleted in ProblemDescription.xml. Please do not change the content of the xml");
+            }
         }
 
         /// <summary>
@@ -65,7 +79,14 @@ namespace DynamicProgramming
         /// <returns>Description of the problem</returns>
         public string GetDescription()
         {
-            return problemElement.Element("Description").Value;
+            try
+            {
+                return problemElement.Element("Description").Value;
+            }
+            catch
+            {
+                throw new DynamicProgrammingException("It seems Description element of the particular Problem is deleted in ProblemDescription.xml. Please do not change the content of the xml");
+            }
         }
 
         /// <summary>
@@ -74,7 +95,14 @@ namespace DynamicProgramming
         /// <returns>Instruction for user</returns>
         public string GetInstruction()
         {
-            return problemElement.Element("Instruction").Value;
+            try
+            {
+                return problemElement.Element("Instruction").Value;
+            }
+            catch
+            {
+                throw new DynamicProgrammingException("It seems Instruction element of the particular Problem is deleted in ProblemDescription.xml. Please do not change the content of the xml");
+            }
         }
 
         /// <summary>
@@ -83,8 +111,15 @@ namespace DynamicProgramming
         /// <returns>Default Sub Method Number</returns>
         public int GetDefaultSubMethod()
         {
+            try
+            {
             return Convert.ToInt32(problemElement.Element("Implementations").Elements("Method").Where(node => node.Attribute("Default") != null 
                 && node.Attribute("Default").Value.Equals("True", StringComparison.OrdinalIgnoreCase)).First().Attribute("Id").Value);
+            }
+            catch
+            {
+                throw new DynamicProgrammingException("It seems Default attribute has been removed/changed in Implementation element of the particular Problem in ProblemDescription.xml. Please do not change the content of the xml");
+            }
 
             /* I used a very simple approach here to check for the existence of the Attribute Default &
              * if you find this unconvincing, here is a more LINQ-ish approach for you - 
@@ -104,8 +139,15 @@ namespace DynamicProgramming
         /// <returns>a key value pair of implementations id and implementations name</returns>
         public Dictionary<int, string> GetImplementations()
         {
-            return (from method in problemElement.Element("Implementations").Elements("Method")
-                    select new { key = Convert.ToInt32(method.Attribute("Id").Value), value = method.Attribute("Name").Value }).ToDictionary(e => e.key, e => e.value);
+            try
+            {
+                return (from method in problemElement.Element("Implementations").Elements("Method")
+                        select new { key = Convert.ToInt32(method.Attribute("Id").Value), value = method.Attribute("Name").Value }).ToDictionary(e => e.key, e => e.value);
+            }
+            catch
+            {
+                throw new DynamicProgrammingException("It seems Implementation element of the particular Problem has been changed in ProblemDescription.xml. Please do not change the content of the xml");
+            }
         }
         #endregion
 
