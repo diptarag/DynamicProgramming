@@ -9,9 +9,9 @@ namespace DynamicProgramming
     {
 
 #if DEBUG
-        readonly string xmlFilePath="..\\..\\ProblemDescription.xml";
+        readonly static string xmlFilePath="..\\..\\ProblemDescription.xml";
 #else
-        readonly string xmlFilePath="ProblemDescription.xml";
+        readonly static string xmlFilePath="ProblemDescription.xml";
 #endif
 
         #region [Data Members]
@@ -142,7 +142,7 @@ namespace DynamicProgramming
             try
             {
                 return (from method in problemElement.Element("Implementations").Elements("Method")
-                        select new { key = Convert.ToInt32(method.Attribute("Id").Value), value = method.Attribute("Name").Value }).ToDictionary(e => e.key, e => e.value);
+                        select new { key = int.Parse(method.Attribute("Id").Value), value = method.Attribute("Name").Value }).ToDictionary(e => e.key, e => e.value);
             }
             catch
             {
@@ -151,5 +151,23 @@ namespace DynamicProgramming
         }
         #endregion
 
+        #region [Static Methods]
+        /// <summary>
+        /// Get the set of problems available to solve using Dynamic Programming concept
+        /// </summary>
+        /// <returns>A key value pairs with Problem Id as the key and Problem Name as the value</returns>
+        public static Dictionary<Global.Problems, string> GetProblems()
+        {
+            try
+            {
+                return (from problem in XDocument.Load(xmlFilePath).Descendants("Problem")
+                        select new { key = (Global.Problems)int.Parse(problem.Attribute("Id").Value), value = problem.Element("Name").Value }).ToDictionary(e => e.key, e => e.value);
+            }
+            catch
+            {
+                throw new DynamicProgrammingException("It seems some elements have been changed in ProblemDescription.xml. Please do not change the content of the xml file.");
+            }
+        }
+        #endregion
     }
 }

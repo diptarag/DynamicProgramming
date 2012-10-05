@@ -33,6 +33,23 @@ namespace DynamicProgramming
         }
 
         /// <summary>
+        /// Check the error type, handles the error if error type is fatal
+        /// </summary>
+        /// <param name="exception">Exception that needs to be determined for fatality</param>
+        /// <returns>true if the exception is fatal, false otherwise</returns>
+        public static bool HandleFatalError(this Exception exception)
+        {
+            if (exception.IsFatal())
+            {
+                CUI.ShowGeneralInformation("\n\nA fata error occurred. Please find below the error : \n" + exception.ToString() + "\n\nPlease notify Diptarag regarding this error. \n\nSystem will exit now. Press any key to exit.");
+                Console.ReadKey();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        /// <summary>
         /// Handle exception with custom error message 
         /// </summary>
         /// <param name="exception">Exception that needs to handled</param>

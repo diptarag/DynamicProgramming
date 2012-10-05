@@ -2,6 +2,9 @@
 
 namespace DynamicProgramming
 {
+    /// <summary>
+    /// Custom Exception Handling class
+    /// </summary>
     class DynamicProgrammingException : Exception
     {
         public DynamicProgrammingException() : base() { }

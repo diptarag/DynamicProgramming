@@ -46,18 +46,20 @@ namespace DynamicProgramming
         /// FileHandler Constructor
         /// </summary>
         /// <param name="ioMode">Specify the IO Mode of the operation</param>
-        /// <param name="saveEntireContent">true to cache entire content of the file</param>
-        public FileHandler(Global.IOMode ioMode, bool saveEntireContent)
+        /// <param name="saveEntireContent">true to cache entire content of the file, dont mention anything for Output file mode</param>
+        public FileHandler(Global.IOMode ioMode, bool saveEntireContent = false)
         {
             this.saveEntireContent = saveEntireContent;
 
-            if (saveEntireContent)
-                entireContent = System.IO.File.ReadAllText(inputFilePath).Split('\n');
-
-            if (ioMode == Global.IOMode.Input && !saveEntireContent)
-                reader = new StreamReader(inputFilePath);
+            if (ioMode == Global.IOMode.Input)
+            {
+                if (saveEntireContent)
+                    entireContent = System.IO.File.ReadAllText(inputFilePath).Split('\n');
+                else
+                    reader = new StreamReader(inputFilePath);
+            }
             else
-                writer = new StreamWriter(outputFilePath);            
+                writer = new StreamWriter(outputFilePath);
         }
 
         /// <summary>
@@ -92,7 +94,7 @@ namespace DynamicProgramming
         /// Write into ouput file
         /// </summary>
         /// <param name="content">Content to write</param>
-        public void WriteContent(string content)
+        public void WriteContent(object content)
         {
             writer.WriteLine(content);
         }

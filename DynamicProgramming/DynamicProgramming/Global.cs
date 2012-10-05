@@ -2,8 +2,11 @@
 
 namespace DynamicProgramming
 {
-    class Global
+    public class Global
     {
+        /// <summary>
+        /// List of problems
+        /// </summary>
         public enum Problems
         {
             None,
@@ -19,6 +22,9 @@ namespace DynamicProgramming
             TravellingSlesmanProblem
         }
 
+        /// <summary>
+        /// Possible IO Mode for File Operations
+        /// </summary>
         public enum IOMode
         {
             Input,

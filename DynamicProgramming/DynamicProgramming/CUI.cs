@@ -23,9 +23,16 @@ namespace DynamicProgramming
         /// List all problems
         /// </summary>
         /// <returns>Option chosen by user</returns>
-        public static string ShowProblemListings()
-        {
-            return string.Empty;
+        public static string ShowProblemListings(Dictionary<Global.Problems, string> problems)
+        {            
+            Console.Clear();
+            Console.WriteLine("\nAvailable Problems : \n");
+            foreach (KeyValuePair<Global.Problems, string> problem in problems)
+            {
+                Console.WriteLine("\n" + (int)problem.Key + ". " + problem.Value);
+            }
+            Console.Write("\n\nEnter the index of the problem you want to solve : ");
+            return Console.ReadLine();
         }
 
         /// <summary>
@@ -62,6 +69,12 @@ namespace DynamicProgramming
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Show available implementations of a particular problem
+        /// </summary>
+        /// <param name="problemName">Name of the Problem</param>
+        /// <param name="methods">Available implementations</param>
+        /// <returns>Option chosen by user</returns>
         public static string ShowImplementations(string problemName, Dictionary<int, string> methods)
         {
             StringBuilder listImplementations = new StringBuilder();
@@ -74,5 +87,25 @@ namespace DynamicProgramming
             Console.WriteLine(listImplementations.ToString());
             return Console.ReadLine();
         }
+
+        /// <summary>
+        /// Show total time taken to complete one operations
+        /// </summary>
+        /// <param name="elapsedTime">Elapsed time</param>
+        public static void ShowTimeElapsed(TimeSpan elapsedTime)
+        {
+            Console.WriteLine("\nTime taken to compute the result : " + elapsedTime.TotalMilliseconds+" ms");
+            Console.Write("\nPress any key to continue...");
+            Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Show any information
+        /// </summary>
+        /// <param name="objInfo">Information to show</param>
+        public static void ShowGeneralInformation(object objInfo)
+        {
+            Console.WriteLine(objInfo);
+        }       
     }
 }
