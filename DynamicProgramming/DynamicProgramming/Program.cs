@@ -72,6 +72,7 @@ namespace DynamicProgramming
             switch (problem)
             {
                 case Global.Problems.RodCutting: return new RodCutting();
+                case Global.Problems.LongestCommonSubSequence: return new LongestCommonSubsequence();
                 default: return null;
             }
         }

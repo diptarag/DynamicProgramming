@@ -119,7 +119,7 @@ namespace DynamicProgramming
         }
         #endregion
 
-        #region [Private Implmentations]
+        #region [Implmentations]
         /*
          * If you are looking into the code, beware! In this implementation section you will often find a piece of code or one function calling another function which could be easily avoided
          * Actually here my key focus point was to measure the timings and performace of the algorithm, not C# coding

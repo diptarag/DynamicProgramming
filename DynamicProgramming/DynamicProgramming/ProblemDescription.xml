@@ -10,13 +10,31 @@
       <Method Id="1" Name="Simple Recursive" />
       <Method Id="2" Name="Top-down with memoization" />
       <Method Id="3" Name="Bottom-up" />
-      <Method Id="4" Name="Bottom-up - Value &amp; Solution" Default="true"/>
+      <Method Id="4" Name="Bottom-up - Value &amp; Solution" Default="true" />
     </Implementations>
     <Instruction>
       input.txt should contain 2 lines. First line should contain only one number - length of the piece to cut. And in second line give the length wise price seperated by a blank space
       i.e. if length of the cut is 2 and price of the length 1 is 10, length 2 is 15, length 3 is 20, then input.txt should be
       2
       10 15 20
+      Please modify the input.txt accordingly and press any key.....
+    </Instruction>
+  </Problem>
+  <Problem Id="4">
+    <Name>Longest Common Subsequence</Name>
+    <Description>
+      In the longest-common-subsequence problem, we are given two sequences
+      X = x1, x2, ..., xm and Y = y1, y2, ..., yn and wish to find a maximum length
+      common subsequence of X and Y.
+    </Description>
+    <Implementations>
+      <Method Id="1" Name="General Longest Common Subsequence"  Default="true" />      
+    </Implementations>
+    <Instruction>
+      input.txt should contain 2 lines. First line should contain the first sequence, and second line should contain second sequence. In both sequences each entry should be separated by blank space.
+      Sample example -
+      A, B, C, B, D, A, B
+      B, D, C, A,  B, A
       Please modify the input.txt accordingly and press any key.....
     </Instruction>
   </Problem>

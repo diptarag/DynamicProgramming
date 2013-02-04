@@ -48,6 +48,7 @@
     <Compile Include="ExtensionException.cs" />
     <Compile Include="FileHandler.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="LongestCommonSubsequence.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="ProblemMetaData.cs" />
     <Compile Include="Program.cs" />

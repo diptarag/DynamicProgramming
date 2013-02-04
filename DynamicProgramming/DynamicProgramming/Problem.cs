@@ -100,6 +100,16 @@ namespace DynamicProgramming
             }
             CUI.ShowGeneralInformation("\n\nPlease open output.txt to view the result.");
         }
+
+        public virtual void StoreResult<T>(List<T> output)
+        {
+            using (FileHandler outputFile = new FileHandler(Global.IOMode.Output))
+            {
+                foreach (object obj in output)
+                    outputFile.WriteContent(obj);
+            }
+            CUI.ShowGeneralInformation("\n\nPlease open output.txt to view the result.");
+        }
         #endregion 
 
         #region [Abstract signature]
